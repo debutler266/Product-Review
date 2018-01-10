@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.all.order("created_at DESC")
   end
 
   def new
@@ -8,12 +9,18 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
 private
 
   def product_params
-    parans.require(:product).permit(:title, :description, :brand)
+    params.require(:product).permit(:title, :description, :brand)
   end
 
 end
