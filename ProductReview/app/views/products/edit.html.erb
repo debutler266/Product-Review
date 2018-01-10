@@ -1,3 +1,9 @@
 <h1>Edit Product</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @product, :html => { :multipart => true } do |f| %>
+    <%= f.select :category_id, @categories %>
+<%= f.input :title, label: "Product Title" %>
+<%= f.input :description %>
+<%= f.input :brand %>
+<%= f.button :submit %>
+<% end %>

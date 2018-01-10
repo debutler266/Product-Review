@@ -1,4 +1,4 @@
-<%= simple_form_for @product do |f| %>
+<%= simple_form_for @product, :html => { :multipart => true } do |f| %>
     <%= select_tag(:category_id, options_for_select(@categories), :prompt => 'Select a Category') %>
 <%= f.input :title, label: "Product Title" %>
 <%= f.input :description %>

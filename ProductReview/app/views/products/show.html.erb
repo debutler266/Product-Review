@@ -1,5 +1,6 @@
 <h2><%= @product.title %></h2>
-<h4><%= @product.brand %></h4>
+<h3><%= @product.brand %></h3>
+<h4>Category: <%= @product.category.name %></h4>
 <p><%= @product.description %></p>
 
 <%= link_to "Back", root_path %>

@@ -24,15 +24,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all.map{ |c| [c.name, c.id] }
+  end
   end
 
   def update
+    @product.category_id = params[:category_id]
     if @product.update(product_params)
       redirect_to product_path(@product)
     else
       render 'edit'
-    end
   end
+end
 
   def destroy
     @product_destroy
@@ -48,5 +51,3 @@ private
   def find_product
     @product = Product.find(params[:id])
   end
-
-end
