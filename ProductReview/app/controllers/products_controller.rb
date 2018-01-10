@@ -21,6 +21,22 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @product_destroy
+    redirect_to root_path
+  end
+
 private
 
   def product_params
