@@ -6,8 +6,15 @@
 
   <% else %>
 
+  <div class="row">
+
 <% @products.each do |product| %>
-<h2><%= link_to product.title, product_path(product) %></h2>
+<div class="col-md-3">
+<a href="/products/<%= product.id %>">
+  <%= image_tag product.product_img.url(:product_index), class: "product" %>
+</a>
+</div>
   <% end %>
+</div>
 
 <% end %>

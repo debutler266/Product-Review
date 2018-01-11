@@ -49,7 +49,7 @@ end
 private
 
   def product_params
-    params.require(:product).permit(:title, :description, :brand, :category_id)
+    params.require(:product).permit(:title, :description, :brand, :category_id, :product_img)
   end
 
   def find_product
